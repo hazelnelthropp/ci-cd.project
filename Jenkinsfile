@@ -5,33 +5,33 @@ pipeline {
     stage('CheckOut') {
       steps {
         echo 'Checkout the source code from GitHub'
-        git 'https://github.com/kranthi619/kranthi-pro2.git'
+        git 'https://github.com/hazelnelthropp/ci-cd.project.git'
       }
     }
 
     stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t kranthi619/finance-me .'
+        sh 'docker build -t kranthi619/Hazel-pro:v1 .'
       }
     }
 
     stage('Docker Login') {
-      steps {
-        withCredentials([usernamePassword(credentialsId: 'Docker-Hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {         
-          sh 'echo $dockerHubPassword | docker login -u $dockerHubUser --password-stdin'
+       steps {
+                sh 'docker login -u kranthi619 -p Kranthi123#'
+                sh 'docker push kranthi619/Hazel-pro:v1'
         }
       }
     }
 
     stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push kranthi619/finance-me'
+        sh 'docker push kranthi619/Hazel-pro:v1'
       }
     }
 
     stage('Deploy Application Ansible') {
       steps { 
-        ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml'
+        ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yaml'
       }
     }
   }
