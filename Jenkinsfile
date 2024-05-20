@@ -35,7 +35,7 @@ pipeline {
     stage('Deploy Application Ansible') {
       steps { 
         echo 'Try to deploy Docker container in ec2 instance 5000 port'
-        ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yaml'
+        ansiblePlaybook credentialsId: 'ci-cd-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yaml'
       }
     }
   }
