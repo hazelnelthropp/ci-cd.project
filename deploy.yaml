@@ -15,4 +15,4 @@
       become: yes
       become_user: root 
     - name: Deploy the image and Run as a container
-      command: docker run -itd -p 5000:5000 kranthi619/Hazel-pro:v1
+      command: docker run -itd -p 5000:5000 kranthi619/hazel-pro:v1
