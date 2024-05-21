@@ -5,7 +5,7 @@ pipeline {
     stage('CheckOut') {
       steps {
         echo 'Checkout the source code from GitHub'
-        git 'https://github.com/hazelnelthropp/ci-cd.project.git'
+        git branch: 'main', url: 'https://github.com/hazelnelthropp/ci-cd.project.git'
       }
     }
 
