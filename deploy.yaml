@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker container on EC2 instances
-  hosts: webserver  # Specify the group of EC2 instances you want to deploy to
+  hosts: all  # Specify the group of EC2 instances you want to deploy to
 
   tasks:
     - name: Update package cache
