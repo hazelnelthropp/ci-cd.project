@@ -17,11 +17,10 @@ pipeline {
     }
 
     stage('Docker Login') {
-       steps {
-                echo 'Try to login to kranthi Docker hub'
-                sh 'docker login -u kranthi619 -p Kranthi123#'
-                sh 'docker push kranthi619/Hazel-pro:v1'
-        }
+      steps {
+        echo 'Try to login to kranthi Docker hub'
+        sh 'docker login -u kranthi619 -p Kranthi123#'
+        sh 'docker push kranthi619/Hazel-pro:v1'
       }
     }
 
