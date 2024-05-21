@@ -25,10 +25,10 @@
 
     - name: Pull Docker image
       become: true
-      shell: docker pull hazelnelthropp/hazel-pro:v1
+      shell: docker pull hazelnelthropp/hazel-pro:v2
       tags: pull_docker_image
 
     - name: Run Docker container
       become: true
-      shell: docker run -itd -p 5000:5000 hazelnelthropp/hazel-pro:v1
+      shell: docker run -itd -p 5000:5000 hazelnelthropp/hazel-pro:v2
       tags: run_docker_container
