@@ -12,22 +12,22 @@ pipeline {
         stage('Docker Image Creation') {
             steps {
                 echo 'Building Docker images using Docker file'
-                sh 'docker build -t kranthi619/hazel-pro:v1 .'
+                sh 'docker build -t hazelnelthropp/hazel-pro:v1 .'
             }
         }
 
         stage('Docker Login') {
             steps {
                 echo 'Try to login to kranthi Docker hub'
-                sh 'docker login -u kranthi619 -p Kranthi123#'
-                sh 'docker push kranthi619/hazel-pro:v1'
+                sh 'docker login -u hazelnelthropp -p Devops1624'
+                sh 'docker push hazelnelthropp/hazel-pro:v1'
             }
         }
 
         stage('Push Image to DockerHub') {
             steps {
-                echo 'Try to push new image to kranthi Docker Hub'
-                sh 'docker push kranthi619/hazel-pro:v1'
+                echo 'Try to push new image to hazelnelthropp Docker Hub'
+                sh 'docker push hazelnelthropp/hazel-pro:v1'
             }
         }
 
